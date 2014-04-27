@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Metalobster</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  </head>
+  <body ng-app="">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="header-container">
+      <header class="wrapper clearfix">
+        <h1 class="title">Metalobster</h1>
+        <!-- <nav> -->
+        <!--   <ul> -->
+        <!--     <li><a href="#"></a></li> -->
+        <!--   </ul> -->
+        <!-- </nav> -->
+      </header>
+    </div>
+
+    <div class="main-container" ng-controller="AddLobster">
+      <div class="main wrapper clearfix">
+
+	<article>
+	  <header></h2>Create a New Lobster</h2></header>
+<section>
+  <form novalidate>
+    Name: <input type="text" ng-model="user.name" /><br />
+    E-mail: <input type="email" ng-model="user.email" /><br />
+    Gender: <input type="radio" ng-model="user.gender" value="male" />male
+    <input type="radio" ng-model="user.gender" value="female" />female<br />
+    <button ng-click="reset()">RESET</button>
+    <button ng-click="update(user)">SAVE</button>
+  </form>
+</section>
+<section>
+  <pre>form = {{user | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+
+</section>
+</article>
+
+<script>
+  function AddLobster($scope) {
+  $scope.master = {};
+  
+  $scope.update = function(user) {
+  $scope.master = angular.copy(user);
+  };
+  
+  $scope.reset = function() {
+  $scope.user = angular.copy($scope.master);
+  };
+  
+  $scope.reset();
+  }
+</script>
+</div> <!-- #main -->
+</div> <!-- #main-container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
+<script src="js/main.js"></script>
+</body>
+</html>
