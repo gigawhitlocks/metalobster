@@ -1,9 +1,10 @@
 # Nginx
+FROM ubuntu
 
 RUN apt-get update -y
 RUN apt-get install -y nginx
 RUN rm -v /etc/nginx/nginx.conf
-ADD nginx.conf /etc/nginx.conf
+ADD ./nginx.conf /etc/nginx/nginx.conf
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 EXPOSE 80
