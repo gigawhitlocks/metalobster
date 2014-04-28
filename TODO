@@ -1,5 +1,4 @@
 
-
 Todo
 
 
@@ -46,6 +45,7 @@ Basic functionality
   irb(main):006:0> t.tag = "test"
   irb(main):007:0> t.save
 
+  * Add nginx virtualhost entry for new lobster
   * Install Sphinx
 * Dockerfile for new lobsters
 
