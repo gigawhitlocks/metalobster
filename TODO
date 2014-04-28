@@ -1,0 +1,58 @@
+
+
+Todo
+
+
+Basic functionality
+* Automate build process
+  * Dependencies are pre-installed on the Docker image
+  * Dockerfile provides new configs for
+    * /lobsters/config/database.yml
+  production:
+    adapter: mysql2
+    encoding: utf8mb4
+    reconnect: false
+    database: GENERATE_DB 
+    socket: /tmp/mysql.sock <- I think this is wrong? check working config
+    username: GENERATE_USERNAME
+    password: GENERATE_PASSWORD
+
+     * /lobsters/config/initializers/production.rb
+  class << Rails.application
+    def domain
+      "$LOBSTERDOMAIN"
+    end
+
+    def name
+      "$LOBSTERNAME"
+    end
+  end
+
+  Rails.application.routes.default_url_options[:host] = Rails.application.domain
+      
+  * run bundle in /lobsters
+  * run rake db:schema:load in /lobsters
+  * run echo "Lobsters::Application.config.secret_token = '$(rake secret)'" > config/initializers/secret_token.rb
+  * do this but with a script, generating a user for the creator of the lobster:
+
+  lobsters$ rails console
+  Loading development environment (Rails 3.2.6)
+  irb(main):001:0> u = User.new(:username => "test", :email => "test@example.com", :password => "test", :password_confirmation => "test")
+  irb(main):002:0> u.is_admin = true
+  irb(main):003:0> u.is_moderator = true
+  irb(main):004:0> u.save
+
+  irb(main):005:0> t = Tag.new
+  irb(main):006:0> t.tag = "test"
+  irb(main):007:0> t.save
+
+  * Install Sphinx
+* Dockerfile for new lobsters
+
+* Figure out how to securely generate MySQL accounts/databases for each lobster
+* Auth
+* Enable search on individual lobsters
+* Scraper/aggregator for main page
+* Description etc for meta.metalobster.net
+* Frontend matter, css, copy
+* IRC?
