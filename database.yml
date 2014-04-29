@@ -1,0 +1,8 @@
+production:
+    adapter: mysql2
+    encoding: utf8mb4
+    reconnect: false
+    database: GENERATE_DB
+    host: lobster.cafduhdnaf5k.us-east-1.rds.amazonaws.com
+    username: GENERATE_USERNAME
+    password: GENERATE_PASSWORD
