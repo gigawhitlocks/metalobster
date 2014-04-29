@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2314dcd8fc25e30a118a7ca092ccf5b5a771f6e
 Todo
 Basic functionality
 * Automate build process
@@ -11,6 +15,8 @@ Basic functionality
   * run /initialize.rb
  * Install Sphinx
  * Set up mail
+  * Add nginx virtualhost entry for new lobster
+  * Install Sphinx
 * Dockerfile for new lobsters
 
 * Figure out how to securely generate MySQL accounts/databases for each lobster
